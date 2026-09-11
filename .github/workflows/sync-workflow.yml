@@ -1,0 +1,45 @@
+name: 海鸥智能同步
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 每天凌晨2点
+  workflow_dispatch:
+
+jobs:
+  sync-and-armor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: 备份破甲配置
+        run: |
+          mkdir -p .backup
+          cp -r AGENTS.md skills/ .backup/ 2>/dev/null || true
+          
+      - name: 同步上游
+        run: |
+          git remote add upstream https://github.com/NousResearch/hermes-agent.git || true
+          git fetch upstream
+          git merge upstream/main --no-edit || echo "冲突待解决"
+          
+      - name: 恢复破甲配置
+        run: |
+          cp -f .backup/AGENTS.md AGENTS.md
+          cp -rf .backup/skills/* skills/
+          
+      - name: 更新依赖
+        run: |
+          npm install
+          pip install -r requirements.txt 2>/dev/null || true
+          
+      - name: 提交变更
+        run: |
+          git config user.name "海鸥自动同步"
+          git config user.email "seagull@laoshu666.dev"
+          git add .
+          git commit -m "🔄 同步上游 + 保留破甲配置" || true
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
