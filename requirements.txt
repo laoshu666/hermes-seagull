@@ -1,0 +1,44 @@
+# 海鸥破甲智能体依赖
+# Python 3.8+
+
+# Hermes Agent (核心依赖)
+hermes-agent>=0.1.0
+
+# CTF/Pwn 工具
+pwntools>=4.11.0
+ROPgadget>=7.3
+capstone>=5.0.0
+keystone-engine>=0.9.2
+unicorn>=2.0.0
+
+# 逆向工程
+radare2-python>=0.3.0
+frida>=16.0.0
+pefile>=2023.2.7
+pyelftools>=0.30
+
+# Web 渗透测试
+requests>=2.31.0
+httpx>=0.25.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# 协议分析
+scapy>=2.5.0
+dpkt>=1.9.8
+
+# 加密/编码
+pycryptodome>=3.19.0
+cryptography>=41.0.0
+
+# 内存操作
+psutil>=5.9.0
+
+# 通用工具
+colorama>=0.4.6
+tqdm>=4.66.0
+tabulate>=0.9.0
+
+# 可选：GUI overlay (游戏辅助)
+# PyQt5>=5.15.0  # Linux/Windows overlay
+# pywin32>=306    # Windows API

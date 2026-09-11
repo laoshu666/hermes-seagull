@@ -1,0 +1,13 @@
+# Seagull Profile for Hermes Agent
+name: seagull
+version: 1.0.0
+description: 海鸥破甲智能体 - CTF/Red-team/Reverse/Pentest 全域专家模式
+author: Seagull Team
+license: MIT
+
+# Profile 包含
+files:
+  - SOUL.md              # 海鸥人格
+  - AGENTS.md            # 破甲指令栈
+  - skills/              # 专业技能
+  - README.md            # 安装文档

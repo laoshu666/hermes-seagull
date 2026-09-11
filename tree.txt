@@ -1,0 +1,39 @@
+Folder PATH listing
+Volume serial number is BC09-C3A9
+C:.
+|   .gitignore
+|   AGENTS.md
+|   install.ps1
+|   install.sh
+|   INSTALL_GUIDE.md
+|   LICENSE
+|   MANIFEST.md
+|   package.ps1
+|   profile.yaml
+|   PROJECT_REPORT.txt
+|   QUICKSTART.md
+|   README.md
+|   README.zh-CN.md
+|   requirements.txt
+|   SOUL.md
+|   STRUCTURE.md
+|   tree.txt
+|   verify.ps1
+|   verify.sh
+|   
+\---skills
+    +---seagull-exploit
+    |       SKILL.md
+    |       
+    +---seagull-game-hack
+    |       SKILL.md
+    |       
+    +---seagull-license-security
+    |       SKILL.md
+    |       
+    +---seagull-pentest
+    |       SKILL.md
+    |       
+    \---seagull-reverse
+            SKILL.md
+            

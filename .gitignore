@@ -1,0 +1,85 @@
+# Git 忽略文件
+
+# 敏感信息（包含 Token 的脚本）
+push-to-github.ps1
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虚拟环境
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 测试和覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# 日志
+*.log
+
+# 临时文件
+*.tmp
+*.bak
+*.backup
+.cache/
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+
+# 编译文件
+*.pyc
+*.pyo
+
+# 文档生成
+docs/_build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 私有配置
+config.local.yaml
+secrets.yaml
+.env.local
