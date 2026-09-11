@@ -393,8 +393,6 @@ MIT License
 ## 链接
 
 - **Hermes Agent**: https://github.com/NousResearch/hermes-agent
-- **问题反馈**: https://github.com/YOUR-USERNAME/hermes-seagull-profile/issues
-- **讨论区**: https://github.com/YOUR-USERNAME/hermes-seagull-profile/discussions
 
 ---
 
