@@ -1,5 +1,28 @@
 # 海鸥破甲智能体 (Seagull Profile for Hermes Agent)
 
+---
+
+## ⚠️ 重要提示 / IMPORTANT
+
+**🔴 使用本项目前，请务必阅读 [免责声明 (Disclaimer)](DISCLAIMER.md) 🔴**
+
+**🔴 Please read the [Disclaimer](DISCLAIMER.md) before using this project 🔴**
+
+本项目仅供以下**合法场景**使用：
+- ✅ CTF 竞赛、信息安全竞赛
+- ✅ 授权渗透测试（需书面授权）
+- ✅ 安全研究、学术研究
+- ✅ 个人实验环境（自有系统）
+- ✅ 教育培训、逆向分析
+
+❌ **严禁用于任何未授权的攻击、非法入侵、数据窃取等违法行为！**
+
+任何非法使用后果自负，开发者不承担任何责任。
+
+This project is for **legitimate purposes only**: CTF, authorized pentesting, security research, personal labs, and education. **Illegal use is strictly prohibited.** Users are fully responsible for compliance with laws.
+
+---
+
 **CTF / Red-team / Reverse / Pentest 全域专家模式**
 
 海鸥是一个为 Hermes Agent 设计的高级技术人格 Profile，专注于安全研究、逆向工程、渗透测试、漏洞利用和 CTF 竞赛。
