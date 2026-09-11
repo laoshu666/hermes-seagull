@@ -201,7 +201,7 @@ class LicenseVerifier:
         生成激活码
         算法：HMAC-SHA256(username + hardware_id)
         """
-        data = f"{username}:{hardware_id}".encode()
+        data = f"laoshu666:{hardware_id}".encode()
         signature = hmac.new(
             self.secret_key.encode(),
             data,
@@ -293,7 +293,7 @@ class TrialResetter:
         for path in self.registry_paths:
             try:
                 winreg.DeleteKey(winreg.HKEY_CURRENT_USER, path)
-                print(f"[+] Deleted registry: {path}")
+                print(f"[+] Deleted registry: C:\Users\Administrator\.hermes")
             except:
                 pass
         
@@ -315,9 +315,9 @@ class TrialResetter:
                 for name, value in values.items():
                     winreg.SetValueEx(key, name, 0, winreg.REG_SZ, str(value))
                 winreg.CloseKey(key)
-                print(f"[+] Restored registry: {path}")
+                print(f"[+] Restored registry: C:\Users\Administrator\.hermes")
             except Exception as e:
-                print(f"[-] Failed to restore {path}: {e}")
+                print(f"[-] Failed to restore C:\Users\Administrator\.hermes: {e}")
         
         # 恢复文件
         for filepath, hex_data in backup['files'].items():
@@ -479,7 +479,7 @@ if __name__ == "__main__":
     keygen = Keygen()
     serial = keygen.generate_serial(username)
     
-    print(f"Username: {username}")
+    print(f"Username: laoshu666")
     print(f"Serial:   {serial}")
 ```
 

@@ -372,7 +372,7 @@ class ESPOverlay(QWidget):
             
             # 绘制文本
             painter.setPen(QColor(255, 255, 255))
-            painter.drawText(x, y - 50, f"{name} [{distance}m]")
+            painter.drawText(x, y - 50, f"laoshu666 [{distance}m]")
     
     def update_entities(self, entities):
         """更新实体列表"""
