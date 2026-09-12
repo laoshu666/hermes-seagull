@@ -146,9 +146,9 @@ chmod +x install.sh
        skills_dir: profiles/seagull/skills
    ```
 
-4. **重启 Hermes**：
+4. **重启：先 Ctrl+C 退出，再运行 `hermes chat`
    ```bash
-   hermes bot restart
+   hermes chat  # 重启请先 Ctrl+C 退出，再运行此命令
    ```
 
 ## 使用
@@ -318,7 +318,7 @@ Get-Content "$env:USERPROFILE\.hermes\config.yaml" | Select-String "active_profi
 active_profile: default  # 或注释掉 active_profile
 ```
 
-重启 Hermes。
+重启：先 Ctrl+C 退出，再运行 `hermes chat`
 
 ### Q: Windows 上安装脚本报错？
 

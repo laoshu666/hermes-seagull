@@ -152,7 +152,7 @@ cd seagull-profile
 # 4. 安装到 Hermes Agent
 .\install.ps1
 
-# 5. 重启 Hermes Agent
+# 5. 重启：先 Ctrl+C 退出，再运行 `hermes chat`
 
 # 6. 测试激活
 # 在 Hermes Agent 中输入: 在吗

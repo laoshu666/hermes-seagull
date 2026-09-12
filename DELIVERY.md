@@ -87,7 +87,7 @@
 .\install.ps1
 ```
 
-### Step 3: 重启 Hermes Agent
+### Step 3: 重启：先 Ctrl+C 退出，再运行 `hermes chat`
 
 ### Step 4: 测试激活
 在 Hermes Agent 中输入:

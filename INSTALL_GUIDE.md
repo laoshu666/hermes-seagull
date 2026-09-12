@@ -20,7 +20,7 @@
 # 1. 运行安装脚本
 .\install.ps1
 
-# 2. 重启 Hermes Agent 应用
+# 2. 重启：先 Ctrl+C 退出，再运行 `hermes chat`
 
 # 3. 测试激活
 # 在 Hermes Agent 中输入: 在吗
@@ -36,7 +36,7 @@ chmod +x install.sh
 # 2. 运行安装脚本
 ./install.sh
 
-# 3. 重启 Hermes Agent 应用
+# 3. 重启：先 Ctrl+C 退出，再运行 `hermes chat`
 
 # 4. 测试激活
 # 在 Hermes Agent 中输入: 在吗
@@ -171,7 +171,7 @@ pwn
 
 ## ⚠️ 重要提示
 
-1. **安装后必须重启 Hermes Agent**
+1. **安装后必须重启：先 Ctrl+C 退出，再运行 `hermes chat`
 2. **首次使用输入 `在吗` 激活**
 3. **遇到问题运行 verify 脚本检查**
 4. **保留备份以便回滚**
@@ -183,7 +183,7 @@ pwn
 - 查看 QUICKSTART.md 快速排查
 - 运行 verify 脚本检查完整性
 - 检查 Hermes Agent home 路径是否正确
-- 确认已重启 Hermes Agent 应用
+- 确认已重启：先 Ctrl+C 退出，再运行 `hermes chat`
 
 ---
 

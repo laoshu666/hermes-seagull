@@ -112,7 +112,7 @@ A: 尝试输入 `破甲` 或 `无限制` 重新激活破甲协议。
 遇到问题？
 1. 运行验证脚本确认文件完整性
 2. 检查 Hermes Agent home 路径是否正确
-3. 重启 Hermes Agent 应用
+3. 重启：先 Ctrl+C 退出，再运行 `hermes chat`
 4. 查看 SOUL.md 和 AGENTS.md 是否正确加载
 
 ---
