@@ -1,11 +1,11 @@
 # 海鸥破甲插件 Seagull Armor-Break Plugin
 
-**Hermes Agent 的 CTF/Red-team/Reverse/Pentest 增强插件包**
+**Hermes Plugin 的 CTF/Red-team/Reverse/Pentest 增强插件包**
 
 ## 🎯 项目定位
 
-海鸥不是独立软件，而是 Hermes Agent 的功能增强插件：
-- ✅ 必须先安装 Hermes Agent（基础框架）
+海鸥不是独立软件，而是 Hermes Plugin 的功能增强插件：
+- ✅ 必须先安装 Hermes Plugin（基础框架）
 - ✅ 海鸥叠加在 Hermes 之上，提供破甲功能
 - ✅ 不覆盖原有功能，只增强能力
 - ✅ API 配置、使用方式与 Hermes 完全一致
@@ -13,7 +13,7 @@
 ## 📦 安装方式
 
 ```bash
-# 1. 安装 Hermes Agent
+# 1. 安装 Hermes Plugin
 curl -fsSL https://install.hermes.nousresearch.com | bash
 
 # 2. 安装海鸥插件
