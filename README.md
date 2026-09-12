@@ -1,4 +1,4 @@
-# 海鸥破甲智能体 (Seagull Profile for Hermes Agent)
+# 海鸥破甲插件 Seagull Armor-Break Plugin
 
 ---
 
