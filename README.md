@@ -156,8 +156,8 @@ chmod +x install.sh
 ### 基础交互
 
 ```bash
-# 启动 Hermes（如果未运行）
-hermes bot start
+# 启动 Hermes 会话
+hermes chat
 
 # 进入交互式会话
 hermes chat
