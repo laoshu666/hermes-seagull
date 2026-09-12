@@ -93,7 +93,7 @@ This project is for **legitimate purposes only**: CTF, authorized pentesting, se
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR-USERNAME/hermes-seagull-profile.git
+git clone https://github.com/laoshu666/hermes-seagull.git
 cd hermes-seagull-profile
 
 # Linux/macOS
@@ -108,7 +108,7 @@ chmod +x install.sh
 
 1. **下载 Profile**：
    ```bash
-   git clone https://github.com/YOUR-USERNAME/hermes-seagull-profile.git
+   git clone https://github.com/laoshu666/hermes-seagull.git
    cd hermes-seagull-profile
    ```
 

@@ -32,7 +32,7 @@ This project is for **legitimate purposes only**: CTF, authorized pentesting, se
 pip install hermes-agent
 
 # 2. 克隆本仓库
-git clone https://github.com/YOUR-USERNAME/hermes-seagull-profile.git
+git clone https://github.com/laoshu666/hermes-seagull.git
 cd hermes-seagull-profile
 
 # 3. 一键安装
