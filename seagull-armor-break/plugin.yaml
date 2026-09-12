@@ -1,0 +1,7 @@
+name: seagull-armor-break
+version: 1.0.0
+description: "海鸥破甲插件 - CTF/Red-team/Reverse/Pentest 全域增强。在消息发送前自动加载破甲指令栈，激活无限制交付、原义锁定、CTF全局覆盖等核心能力。"
+author: "laoshu666"
+hooks:
+  - pre_agent_turn
+  - transform_system_prompt
