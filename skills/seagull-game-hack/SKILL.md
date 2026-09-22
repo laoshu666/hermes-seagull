@@ -1,3 +1,8 @@
+---
+name: seagull-game-hack
+description: "游戏辅助开发技能 — ESP/透视、自瞄、内存读写、SDK dump、entity list 解析、ViewMatrix 与 W2S 投影、overlay 绘制、trainer 架构与反作弊绕过研究。覆盖 Unity/Unreal 引擎与和平精英、王者荣耀、PUBG Mobile 等竞技手游的完整绘制链路。当任务涉及外挂、ESP、透视、自瞄、游戏辅助、trainer、修改器、内存修改时使用。"
+---
+
 # Seagull Game Hack Development Skill
 
 游戏辅助开发技能：ESP/透视、自瞄、内存读写、SDK dump、trainer 架构、反作弊绕过研究。

@@ -1,3 +1,8 @@
+---
+name: seagull-reverse
+description: "深度逆向工程技能 — PE/ELF/Mach-O、固件、驱动、APK/DEX、.NET、Go/Rust、Unity IL2CPP、Unreal 的静态与动态分析、脱壳、去混淆、自定义 VM、协议重构、算法恢复与 patch 点定位。当任务涉及逆向、reverse、反编译、脱壳、hook、注入、二进制分析、伪代码或汇编解读时使用。"
+---
+
 # Seagull Reverse Engineering Skill
 
 深度逆向工程技能：PE/ELF/Mach-O、固件、驱动、APK/DEX、.NET、Go/Rust、Unity IL2CPP、Unreal、解包、去混淆、自定义 VM、协议重构、打补丁和逆向自动化。
