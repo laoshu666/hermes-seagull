@@ -1,4 +1,4 @@
-# 批量检查 Hermes Agent 项目中的引用一致性
+﻿# 批量检查 Hermes Agent 项目中的引用一致性
 # 用于验证所有文件都已正确适配为 Hermes Agent
 
 Write-Host "开始检查 Hermes Agent 项目引用一致性..." -ForegroundColor Yellow

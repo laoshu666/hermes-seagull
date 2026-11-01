@@ -1,4 +1,4 @@
-# file: dist/seagull-update.ps1
+﻿# file: dist/seagull-update.ps1
 <#
 .SYNOPSIS
     海鸥 profile 更新 — 从分发包重新拉取，保留用户数据。

@@ -1,4 +1,4 @@
-# 通用引用替换工具（已完成 Hermes Agent 适配）
+﻿# 通用引用替换工具（已完成 Hermes Agent 适配）
 # 用于将其他项目适配为 Hermes Agent
 
 $replacements = @{

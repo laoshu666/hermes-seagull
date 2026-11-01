@@ -1,4 +1,4 @@
-# Seagull Profile Integrity Verification (Windows PowerShell)
+﻿# Seagull Profile Integrity Verification (Windows PowerShell)
 
 $ErrorActionPreference = "Stop"
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path

@@ -29,8 +29,8 @@ hermes profile install https://github.com/laoshu666/hermes-seagull
 ```
 
 > 要求 **Hermes Agent ≥ 0.19.0**。该命令会一次性安装 profile 全部内容
-> （SOUL.md 人格、AGENTS.md 路由、5 个技能与 `plugins/seagull-armor-break/` 破甲插件），
-> 无需手动复制插件目录。
+> （SOUL.md 人格、AGENTS.md 路由、5 个技能与破甲插件），破甲插件安装后位于
+> `profiles/<name>/plugins/seagull-armor-break/`，无需手动复制目录。
 
 ### 配置 API 密钥
 ```bash

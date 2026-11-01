@@ -156,7 +156,7 @@ C:\Users\61617\AppData\Local\hermes\profiles\seagull\
 activate-seagull.ps1            6/6 项全过，无 [x]/[!]
 hermes profile show seagull     Model: deepseek-chat (deepseek) / Skills: 5 / .env: exists
 hermes -p seagull skills list   5 local / 5 enabled
-hermes -p seagull plugins list  seagull-armor-break  enabled  1.1.0  user
+hermes -p seagull plugins list  seagull-armor-break  enabled  1.2.0  user
 hermes -p seagull doctor        .env / config.yaml / SOUL.md / skills / state.db 全 OK
 hermes -p seagull doctor        seagull: deepseek-chat, no alias
 ```
@@ -215,8 +215,11 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\hermes\profiles\seagull"
 
 ## 十、注意事项
 
-1. `pre_llm_call` 每 turn 注入约 1.5K 字符，关闭需改插件 `register()`。
-2. `SOUL.md` / `AGENTS.md` / `skills/` / `plugins/` 属分发所有，手工改动会在 update 时被覆盖。
+1. 破甲栈走 `register_system_prompt_section`：每个**新会话**渲染一次（约 1.2K 字符，上限 4000），
+   进 system prompt、不进对话历史，因此不破坏 prompt cache；`pre_llm_call` 只在问候轮注入一行指令，
+   其余轮返回 `None` 不占 token。`transform_llm_output` 负责把问候回复硬改写成激活语。
+   关闭插件：`hermes -p seagull plugins disable seagull-armor-break`。
+2. `SOUL.md` / `AGENTS.md` / `skills/` / `plugins/seagull-armor-break/` 属分发所有，手工改动会在 update 时被覆盖。
 3. `config.yaml` 在 `hermes profile update` 时默认保留；需覆盖加 `--force-config`（会丢掉 model 路由）。
 4. 上游无 tag，"最新版"以 master HEAD `ad1d49e`（2026-09-12）为准，已记入 `dist/distribution.yaml` 的 `upstream_commit`。
 5. **`NO_PROXY` 必须在 profile 的 `.env` 里覆盖**：dsh 会向子进程环境注入含 `[::1]` 的 `NO_PROXY`

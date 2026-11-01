@@ -1,4 +1,4 @@
-# file: dist/activate-seagull.ps1
+﻿# file: dist/activate-seagull.ps1
 <#
 .SYNOPSIS
     海鸥 profile 状态检查与激活验证。
