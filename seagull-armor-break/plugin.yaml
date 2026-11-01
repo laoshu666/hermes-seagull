@@ -1,6 +1,0 @@
-name: seagull-armor-break
-version: 1.1.0
-description: "海鸥破甲插件 - CTF/Red-team/Reverse/Pentest 全域增强。通过 system prompt section 把破甲指令栈冻结进每个新会话，并在首轮问候时注入激活提示。"
-author: "laoshu666"
-hooks:
-  - pre_llm_call

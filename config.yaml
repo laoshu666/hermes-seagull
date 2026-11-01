@@ -1,0 +1,44 @@
+# ============================================================================
+# Seagull Profile — Hermes Agent 配置 (Hermes v0.19+, config schema v33)
+# 由 hermes-seagull 分发包提供；`hermes profile update` 默认保留本文件。
+#
+# 注意：`hermes doctor --fix` / `hermes -p seagull config set` 会重写本文件
+# 并丢掉注释。想保留注释请直接编辑本文件，或改本文件后重新构建 dist。
+# ============================================================================
+
+# ---------------------------------------------------------------------------
+# 模型路由（必填，否则请求会回落 openrouter + 空 model → HTTP 401）
+#   provider: hermes 内置 PROVIDER_REGISTRY 的 id；deepseek 指向
+#             https://api.deepseek.com/v1，凭据取 DEEPSEEK_API_KEY
+#   default : 会话默认模型 id
+# ---------------------------------------------------------------------------
+model:
+  provider: deepseek
+  default: deepseek-chat
+
+# ---------------------------------------------------------------------------
+# 破甲注入插件：每个 turn 前自动注入破甲指令栈
+#   * pre_llm_call          -> 注入 SEAGULL_CORE_INSTRUCTIONS
+#   * transform_llm_output  -> 问候激活语拦截改写
+#   * pre_tool_call         -> 观察记录（不阻断）
+# 插件按 opt-in 加载，必须在 enabled 白名单里才会生效。
+# ---------------------------------------------------------------------------
+plugins:
+  enabled:
+    - seagull-armor-break
+
+# ---------------------------------------------------------------------------
+# 会话上下文引擎：长会话压缩（与 default profile 保持一致）
+# ---------------------------------------------------------------------------
+context:
+  engine: lcm
+
+# ---------------------------------------------------------------------------
+# config schema v33 — doctor --fix 迁移写入的键，随分发包一起带上，
+# 避免每次重装后 hermes 再报 "Config version outdated (v0 → v33)"。
+# ---------------------------------------------------------------------------
+display:
+  tool_progress: all
+agent:
+  verify_on_stop: false
+_config_version: 33

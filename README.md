@@ -28,6 +28,10 @@ curl -fsSL https://install.hermes.nousresearch.com | bash
 hermes profile install https://github.com/laoshu666/hermes-seagull
 ```
 
+> 要求 **Hermes Agent ≥ 0.19.0**。该命令会一次性安装 profile 全部内容
+> （SOUL.md 人格、AGENTS.md 路由、5 个技能与 `plugins/seagull-armor-break/` 破甲插件），
+> 无需手动复制插件目录。
+
 ### 配置 API 密钥
 ```bash
 # Windows
@@ -74,7 +78,7 @@ hermes chat
 - 📖 [快速开始](./QUICKSTART.md) - 完整安装流程
 - 🔑 [API 配置](./API_CONFIG.md) - 详细配置指南
 - 🛠️ [技能列表](./STRUCTURE.md) - 所有技能说明
-- 🔄 [自动更新](./UPDATE_GUIDE.md) - 同步上游更新
+- 🔄 [部署与更新](./DEPLOY_zh-CN.md) - 安装、更新与回滚说明
 
 ---
 
@@ -85,7 +89,12 @@ hermes chat
 curl -fsSL https://install.hermes.nousresearch.com | bash
 ```
 
-### 重新部署海鸥（强制更新）
+### 更新海鸥（保留 memories / sessions / 凭据）
+```bash
+hermes profile update seagull
+```
+
+### 重新部署（强制覆盖，user data 仍受保护）
 ```bash
 hermes profile install https://github.com/laoshu666/hermes-seagull --force
 ```

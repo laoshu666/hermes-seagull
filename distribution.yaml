@@ -1,0 +1,15 @@
+name: seagull
+version: 1.1.0
+description: "海鸥破甲智能体 — CTF / 红队 / 逆向 / 渗透 / 游戏辅助 / 卡密安全全域专家 Profile。含 SOUL.md 人格内核、AGENTS.md 技能路由、5 个专业技能与 seagull-armor-break 破甲注入插件。"
+hermes_requires: '>=0.19.0'
+author: laoshu666
+license: MIT
+distribution_owned:
+- SOUL.md
+- AGENTS.md
+- config.yaml
+- skills
+- plugins
+- activate-seagull.ps1
+- seagull-update.ps1
+- DEPLOY_zh-CN.md
