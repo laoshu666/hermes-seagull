@@ -1,3 +1,8 @@
+---
+name: seagull-license-security
+description: "卡密与授权安全：验证链恢复、patch-point 定位、本地 harness。"
+---
+
 # Seagull License Security Skill
 
 卡密/授权验证安全研究：验证流恢复、patch-point 映射、本地 harness、激活流客户端。

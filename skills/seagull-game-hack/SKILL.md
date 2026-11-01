@@ -1,3 +1,8 @@
+---
+name: seagull-game-hack
+description: "游戏辅助开发：外部内存读写、实体列表、ESP/自瞄、反作弊对抗。"
+---
+
 # Seagull Game Hack Development Skill
 
 游戏辅助开发技能：ESP/透视、自瞄、内存读写、SDK dump、trainer 架构、反作弊绕过研究。
