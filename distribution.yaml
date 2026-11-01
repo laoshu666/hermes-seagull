@@ -9,7 +9,7 @@ distribution_owned:
 - AGENTS.md
 - config.yaml
 - skills
-- plugins
+- seagull-armor-break
 - activate-seagull.ps1
 - seagull-update.ps1
 - DEPLOY_zh-CN.md
