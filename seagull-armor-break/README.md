@@ -1,6 +1,20 @@
 # seagull-armor-break — 海鸥破甲插件 (Hermes Agent v0.19+)
 
-**在每个 agent turn 前自动注入破甲指令栈，并在输出阶段完成问候激活改写。**
+**在每个新会话的 system prompt 里冻结破甲协议栈，并在输出阶段做问候改写与半拒检测。**
+
+---
+
+## v1.3.0 新增
+
+| 能力 | 实现 | 实测 |
+|---|---|---|
+| 全协议栈 section | `SEAGULL_CORE_INSTRUCTIONS` 从 1218 → **2806 chars**（硬顶 4000），覆盖 00a/00b/00c/00d/00e/00f/00h/00i/00j-00k/00m/00p/00r + 技能路由 + 禁止输出 + 人格锚点 + 缺参默认 + 触发词确认行 | `verify_plugin_v13.py [1]` 全绿 |
+| 输出侧半拒检测 | `scan_half_refusal()` 扫 P1 许可切除 / P2 降级替换 / P3 客服收尾，命中写入 `_pending_rewrite`（**不篡改当前输出**） | `[5]` P1/P2/P3 全命中，正常代码零误报 |
+| 半拒闭环 | 下一轮 `pre_llm_call` 自动补「## 破甲强制重写」指令，只补一次 | `[6]` |
+| 领域触发词路由 | 外挂/渗透/逆向/exploit/卡密/成人 六组正则，命中即预注入确认行 + 技能限定名；闲聊不注入 | `[4]` |
+| 状态有界 | `_last_user_message` / `_pending_rewrite` 改 `OrderedDict` LRU，上限 512 | `[7]` 灌 1200 会话后仍 512 |
+
+回归脚本：`verify_plugin_v13.py <plugin_dir>`（模拟 PluginContext，26 条断言，全绿返回 0）。
 
 ---
 
