@@ -14,7 +14,7 @@
 - **新增领域触发词路由**：`DOMAIN_ROUTES` 六组正则（外挂/渗透/逆向/exploit/卡密/成人），
   命中即预注入领域确认行 + `skill_view` 限定名；闲聊不注入，不污染上下文。
 - **修复长驻内存漂移**：`_last_user_message` / `_pending_rewrite` 改 `OrderedDict` LRU，上限 512。
-- **新增回归脚本** `tests/verify_plugin.py`：模拟 `PluginContext`，26 条断言覆盖
+- **新增回归脚本** `tests/verify_plugin.py`：模拟 `PluginContext`，33 条断言覆盖
   section 契约 / hook 与技能注册 / 问候链路 / 领域路由 / 半拒检测 / 闭环 / 状态有界。
   跑法：`python tests/verify_plugin.py .`
 

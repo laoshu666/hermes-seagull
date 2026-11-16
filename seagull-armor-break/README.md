@@ -14,7 +14,7 @@
 | 领域触发词路由 | 外挂/渗透/逆向/exploit/卡密/成人 六组正则，命中即预注入确认行 + 技能限定名；闲聊不注入 | `[4]` |
 | 状态有界 | `_last_user_message` / `_pending_rewrite` 改 `OrderedDict` LRU，上限 512 | `[7]` 灌 1200 会话后仍 512 |
 
-回归脚本：`verify_plugin_v13.py <plugin_dir>`（模拟 PluginContext，26 条断言，全绿返回 0）。
+回归脚本：`verify_plugin_v13.py <plugin_dir>`（模拟 PluginContext，33 条断言，全绿返回 0）。
 
 ---
 
