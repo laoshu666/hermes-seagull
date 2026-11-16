@@ -1,4 +1,4 @@
-# GitHub 快速配置向导
+﻿# GitHub 快速配置向导
 # 帮助你一步步完成 GitHub 配置和首次推送
 
 $ErrorActionPreference = "Stop"

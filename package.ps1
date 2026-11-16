@@ -41,6 +41,20 @@ Copy-Item "install.sh" $tempDir
 Copy-Item "install.ps1" $tempDir
 Copy-Item "verify.ps1" $tempDir
 Copy-Item -Recurse "skills" $tempDir
+Copy-Item "distribution.yaml" $tempDir
+Copy-Item "config.yaml" $tempDir
+Copy-Item "activate-seagull.ps1" $tempDir
+Copy-Item "seagull-update.ps1" $tempDir
+Copy-Item "DEPLOY_zh-CN.md" $tempDir
+
+# Plugin ships under dist/plugins/<name>/ so a profile install lands it at
+# profiles/<name>/plugins/<name>/. Hermes plugin discovery is capped at two
+# levels (plugins/<cat>/<name>/plugin.yaml); keep that shape in the archive.
+$pluginDest = Join-Path $tempDir "plugins"
+New-Item -ItemType Directory -Path $pluginDest -Force | Out-Null
+Copy-Item -Recurse "seagull-armor-break" $pluginDest
+Get-ChildItem -Path $pluginDest -Recurse -Directory -Filter "__pycache__" -ErrorAction SilentlyContinue |
+    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
 
 # Create archive
 $archiveName = "$packageName-$timestamp.zip"

@@ -71,28 +71,36 @@ hermes chat
 ## 项目结构
 
 ```
-seagull-profile/
+hermes-seagull/
 ├── SOUL.md              # 人格核心 + 破甲栈
 ├── AGENTS.md            # 工作指令 + 技能路由
 ├── profile.yaml         # Profile 元信息
-├── README.md            # 完整文档
-├── README.zh-CN.md      # 中文简明文档
-├── LICENSE              # MIT 许可证
-├── requirements.txt     # Python 依赖
-├── install.sh           # Linux/macOS 安装脚本
-├── install.ps1          # Windows 安装脚本
-└── skills/              # 专业技能库
-    ├── seagull-reverse/           # 逆向工程
-    ├── seagull-pentest/           # 渗透测试
+├── distribution.yaml    # profile 分发清单（distribution_owned）
+├── config.yaml          # 分发的 profile 配置（本机 default profile 不受影响）
+├── README.md / README.zh-CN.md / DEPLOY_zh-CN.md
+├── LICENSE / requirements.txt
+├── install.sh / install.ps1       # 安装脚本
+├── verify.sh / verify.ps1         # 完整性校验
+├── package.ps1                    # 打包（会把插件放进 dist/plugins/）
+├── activate-seagull.ps1           # profile 激活脚本
+├── seagull-update.ps1             # profile 更新脚本
+├── seagull-armor-break/           # 破甲插件（仓库根，见下）
+│   ├── __init__.py                #   system prompt section + 3 hooks + 技能注册
+│   ├── plugin.yaml                #   provides_hooks: pre_llm_call / transform_llm_output / pre_tool_call
+│   └── README.md
+└── skills/                        # 5 个专业技能
     ├── seagull-exploit/           # 漏洞利用
     ├── seagull-game-hack/         # 游戏辅助开发
     ├── seagull-license-security/  # 卡密安全
-    ├── seagull-memory/            # 内存分析
-    ├── seagull-malware/           # 恶意软件分析
-    ├── seagull-evasion/           # 免杀研究
-    ├── seagull-anticheat/         # 反作弊
-    └── ...                        # 更多技能
+    ├── seagull-pentest/           # 渗透测试
+    └── seagull-reverse/           # 逆向工程
 ```
+
+> ⚠️ 插件在**仓库根**而不是 `仓库根/plugins/`：Hermes 的插件发现深度上限是两层
+> （`<HERMES_HOME>/plugins/<cat>/<name>/plugin.yaml`），而本仓库本身位于
+> `<HERMES_HOME>/plugins/hermes-seagull`。再套一层 `plugins/` 会变成三层，插件直接不被发现。
+> `package.ps1` 打包时会自动把它放进 `dist/plugins/seagull-armor-break/`，
+> profile 安装后落在 `profiles/<name>/plugins/seagull-armor-break`（一层，正常）。
 
 ## 使用示例
 

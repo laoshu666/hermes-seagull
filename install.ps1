@@ -1,4 +1,4 @@
-# 海鸥破甲智能体安装脚本 (Windows)
+﻿# 海鸥破甲智能体安装脚本 (Windows)
 # PowerShell 5.1+
 
 param(
