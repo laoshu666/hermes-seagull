@@ -1,181 +1,41 @@
-# 🔧 海鸥 API 配置修改指南
+# Seagull 模型与凭证配置（Hermes 0.23）
 
-## 📍 配置文件位置
-
-**Windows:**
-```
-C:\Users\你的用户名\AppData\Local\hermes\config.yaml
-```
-
-**Linux/Mac:**
-```
-~/.config/hermes/config.yaml
-```
-
----
-
-## 🎯 修改步骤
-
-### 1️⃣ 打开配置文件
+Seagull 使用独立 Profile。查看实际配置路径：
 
 ```bash
-# Windows
-notepad C:\Users\Administrator\AppData\Local\hermes\config.yaml
-
-# Linux/Mac
-nano ~/.config/hermes/config.yaml
+hermes -p seagull config path
 ```
 
-### 2️⃣ 修改 API 配置
+Windows 默认位置：`%LOCALAPPDATA%\hermes\profiles\seagull\config.yaml`。
+Linux/macOS 默认位置：`~/.hermes/profiles/seagull/config.yaml`。如果设置了 `HERMES_HOME` 或选择其他 Profile，以命令输出为准。
 
-#### 方式一：使用 OpenAI 官方 API
-
-```yaml
-custom_providers:
-- name: openai-official
-  base_url: https://api.openai.com/v1
-  api_key: sk-你的OpenAI密钥
-  api_mode: chat_completions
-  models:
-    gpt-4o:
-      name: gpt-4o
-    gpt-4-turbo:
-      name: gpt-4-turbo
-  model: gpt-4o
-
-model:
-  default: gpt-4o
-  provider: openai-official
-```
-
-#### 方式二：使用 DeepSeek API
-
-```yaml
-custom_providers:
-- name: deepseek
-  base_url: https://api.deepseek.com/v1
-  api_key: sk-你的DeepSeek密钥
-  api_mode: chat_completions
-  models:
-    deepseek-chat:
-      name: deepseek-chat
-  model: deepseek-chat
-
-model:
-  default: deepseek-chat
-  provider: deepseek
-```
-
-#### 方式三：使用中转 API（OneAPI/New API）
-
-```yaml
-custom_providers:
-- name: my-oneapi
-  base_url: https://你的中转域名/v1
-  api_key: sk-你的中转密钥
-  api_mode: chat_completions
-  models:
-    gpt-4o:
-      name: gpt-4o
-    claude-3.5:
-      name: claude-3.5
-  model: gpt-4o
-
-model:
-  default: gpt-4o
-  provider: my-oneapi
-```
-
-#### 方式四：使用本地模型（Ollama）
-
-```yaml
-custom_providers:
-- name: ollama
-  base_url: http://localhost:11434/v1
-  api_key: ollama  # 随便填，Ollama 不验证
-  api_mode: chat_completions
-  models:
-    qwen2.5:
-      name: qwen2.5
-    deepseek-r1:
-      name: deepseek-r1
-  model: qwen2.5
-
-model:
-  default: qwen2.5
-  provider: ollama
-```
-
----
-
-## 🔑 配置说明
-
-| 字段 | 说明 | 示例 |
-|------|------|------|
-| \
-ame\ | 提供商名称（自定义） | \openai-official\ |
-| \ase_url\ | API 地址 | \https://api.openai.com/v1\ |
-| \pi_key\ | API 密钥 | \sk-xxx\ |
-| \pi_mode\ | API 模式 | \chat_completions\ |
-| \models\ | 可用模型列表 | 见上方示例 |
-| \model\ | 默认使用的模型 | \gpt-4o\ |
-
----
-
-## ✅ 验证配置
-
-修改完成后重启 Hermes：
+## 配置
 
 ```bash
-# 退出当前会话（Ctrl+C）
-# 重新启动
-hermes chat
-
-# 测试 API
-你好
+hermes -p seagull setup
+hermes -p seagull model
 ```
 
-如果正常回复，说明配置成功！
+凭证保存在该 Profile 的 `.env` 或 Hermes 的凭证存储中，不要提交 API key。新 Seagull Profile 不继承默认 Profile 的模型或凭证；首次使用前按需运行 `setup`。已有 Seagull Profile 的模型、provider、凭证和自定义配置不会被 `hermes profile update seagull --yes` 覆盖。
 
----
-
-## 🆘 常见问题
-
-### Q1: 修改后不生效？
-**A:** 确保：
-1. 已保存文件
-2. 已退出并重新启动 \hermes chat\
-3. YAML 格式正确（缩进用空格，不要用 Tab）
-
-### Q2: API 调用失败？
-**A:** 检查：
-1. \pi_key\ 是否正确
-2. \ase_url\ 是否可访问（可用浏览器测试）
-3. 模型名称是否正确
-
-### Q3: 如何切换模型？
-**A:** 修改配置文件中的：
-```yaml
-model:
-  default: 你想用的模型名
-  provider: 你想用的提供商名
-```
-
----
-
-## 📝 快速命令
+检查配置：
 
 ```bash
-# 快速编辑配置（Windows）
-notepad %LOCALAPPDATA%\hermes\config.yaml
-
-# 快速编辑配置（Linux/Mac）
-nano ~/.config/hermes/config.yaml
-
-# 查看当前配置
-cat ~/.config/hermes/config.yaml
+hermes -p seagull config get model.default
+hermes -p seagull config get model.provider
+hermes -p seagull doctor
 ```
 
----
+自定义 provider 的字段结构以 Hermes 0.23 的 `setup`、`model` 和官方文档为准，不使用旧 Seagull 示例中的 `custom_providers` 配置格式。
 
-**🎉 配置完成后，发送"在吗"激活海鸥破甲模式！**
+官方参考：https://hermes-agent.nousresearch.com/docs/
+
+## 验证
+
+```bash
+hermes -p seagull plugins list --plain --no-bundled
+hermes -p seagull skills list
+hermes -p seagull chat
+```
+
+插件应显示 `enabled`，并有 5 个 Seagull 技能。发送 `在吗` 检查固定问候。

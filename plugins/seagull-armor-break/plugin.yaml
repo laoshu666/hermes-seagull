@@ -1,0 +1,7 @@
+name: seagull-armor-break
+version: 1.1.0
+description: "海鸥破甲插件 - Hermes 0.23 兼容版；注册缓存安全的常驻指令和问候路由。"
+author: "laoshu666"
+requires_hermes: ">=0.23"
+provides_hooks:
+  - pre_llm_call

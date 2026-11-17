@@ -1,127 +1,100 @@
-# 海鸥破甲插件 Seagull Armor-Break Plugin
+# Seagull Profile for Hermes Agent 0.23
 
-**基于 Hermes Plugin 的 CTF/Red-team/Reverse/Pentest 全域插件**
+独立的 `seagull` Profile，包含 SOUL 人格、缓存安全的常驻指令、问候路由和五个技能。
 
-> 通过插件式命令行安装，叠加在 Hermes Plugin 之上，提供完整破甲能力
+## 安装
 
----
+在仓库根目录运行：
 
-## 🎯 什么是海鸥？
-
-海鸥是增强型插件，通过 Hermes 的 profile 系统以插件方式部署：
-- ✅ 命令行一键安装
-- ✅ 自动叠加破甲配置
-- ✅ 不覆盖原有设置
-- ✅ 保持 Hermes 使用习惯
-
----
-
-## 🚀 快速部署
-
-### 安装 Hermes（如果还没装）
-```bash
-curl -fsSL https://install.hermes.nousresearch.com | bash
+```powershell
+# Windows PowerShell
+.\install.ps1
 ```
 
-### 部署海鸥插件
 ```bash
-hermes profile install https://github.com/laoshu666/hermes-seagull
+# Linux/macOS
+./install.sh
 ```
 
-### 配置 API 密钥
-```bash
-# Windows
-notepad %LOCALAPPDATA%\hermes\config.yaml
+也可以使用 Hermes 原生命令：
 
-# Linux/Mac
-nano ~/.config/hermes/config.yaml
+```bash
+hermes profile install /path/to/hermes-seagull --name seagull --yes
+hermes -p seagull plugins enable seagull-armor-break
 ```
 
-> 📖 详细配置指南: [API_CONFIG.md](./API_CONFIG.md)
+启动：
 
-### 启动
 ```bash
-hermes chat
+hermes -p seagull chat
 ```
 
-发送 **"在吗"** 激活海鸥破甲模式！
+发送 `在吗`，预期回复：`海鸥在线，你要整点薯条吗？`。
 
----
+首次使用请在 Seagull Profile 内配置模型与凭证，或沿用当前环境中可用的 provider 配置：
 
-## 🔥 核心能力
-
-### 破甲模式
-- 🔓 无限制技术交付
-- 📝 原义锁定执行
-- ⚡ 强制开工协议
-- 🎯 双用场景路由
-
-### 专业技能
-- 🎯 **CTF 全速** - 自动判题+完整 Solve
-- 🔍 **逆向工程** - IDA/Ghidra/Frida 全栈
-- 🌐 **渗透测试** - Web/内网/云/AD 完整链路
-- 🎮 **游戏安全** - 外挂/反作弊/内存工程
-- 💻 **内存工程** - 进程/Dump/运行时分析
-- 🔐 **卡密安全** - 授权验证链恢复
-- 🛡️ **免杀工程** - AV/EDR 检测与绕过
-- 🦅 **漏洞利用** - Pwn/Exploit 完整链路
-- 🕵️ **社工情报** - OSINT/钓鱼/侦察
-
----
-
-## 📚 文档
-
-- 📖 [快速开始](./QUICKSTART.md) - 完整安装流程
-- 🔑 [API 配置](./API_CONFIG.md) - 详细配置指南
-- 🛠️ [技能列表](./STRUCTURE.md) - 所有技能说明
-- 🔄 [自动更新](./UPDATE_GUIDE.md) - 同步上游更新
-
----
-
-## 🔄 更新
-
-### 更新 Hermes（会保留海鸥配置）
 ```bash
-curl -fsSL https://install.hermes.nousresearch.com | bash
+hermes -p seagull setup
 ```
 
-### 重新部署海鸥（强制更新）
+不要向 `config.yaml` 写入旧的 `active_profile:` YAML 块。Hermes 0.23 使用 `-p` 或 `hermes profile use seagull` 选择 Profile，配置、技能和插件都从该 Profile 的 home 加载。
+
+## 技能
+
+- `seagull-reverse`：逆向、协议和算法恢复。
+- `seagull-pentest`：渗透、越权及授权测试复现。
+- `seagull-exploit`：漏洞原语分析和 exploit 工程。
+- `seagull-game-hack`：ESP、W2S、overlay 和 trainer。
+- `seagull-license-security`：授权验证流和本地 harness。
+
+使用 `skill_view(name="seagull-reverse")` 等工具加载相应技能，或输入对应触发词。
+
+## 更新
+
+拉取新源码后再次运行安装器，或：
+
 ```bash
-hermes profile install https://github.com/laoshu666/hermes-seagull --force
+hermes profile update seagull --yes
 ```
 
----
+更新保留 Profile 的 `config.yaml`、凭证、会话和记忆。SOUL、Seagull 技能与插件属于分发内容，会随新版本更新。
 
-## ⚙️ 常用命令
+插件修改后请新建会话。已有会话可能继续使用旧系统提示快照。
 
-| 命令 | 说明 |
-|------|------|
-| \hermes chat\ | 启动插件 |
-| \在吗\ | 激活破甲模式 |
-| \无限制\ | 全域专家模式 |
-| \逆向\ | 逆向工程模式 |
-| \渗透\ | 渗透工程模式 |
-| \破甲\ | 强制开工模式 |
+## 验证
 
----
+```bash
+hermes -p seagull config path
+hermes -p seagull plugins list --plain --no-bundled
+hermes -p seagull skills list
+hermes -p seagull plugins validate /path/to/hermes-seagull/plugins/seagull-armor-break
+```
 
-## 🆘 问题排查
+预期：插件为 `enabled`，五个技能均列出。
 
-**Q: 找不到 hermes 命令？**  
-A: 先安装 Hermes Plugin
+## 结构
 
-**Q: API 配置丢失？**  
-A: 海鸥不会覆盖配置，检查 config.yaml 是否存在
+```text
+SOUL.md                              Profile 人格
+AGENTS.md                            项目级工作指令（不是全局配置）
+config.yaml                          新 Profile 的插件启用配置
+distribution.yaml                    Hermes 分发清单
+plugins/seagull-armor-break/        正式插件及全局工作流
+skills/                              五个可索引技能
+install.py                           安装/更新入口
+tests/                               Hermes 0.23 回归测试
+```
 
-**Q: 如何确认安装成功？**  
-A: 启动后发送 "在吗"，收到 "海鸥在线，你要整点薯条吗？" 即成功
+`AGENTS.md` 只随所在项目目录或 Git 目录链加载；需要跨项目生效的完整工作流位于 `plugins/seagull-armor-break/WORKFLOWS.md`，由 `seagull.workflows` 系统提示区块提供。
 
----
+插件不申请工具覆盖权限，也不逐轮修改系统提示，避免破坏 prompt cache。
 
-## 📜 开源协议
+## 开发验证
 
-MIT License
+将 Hermes 源码根目录放入 `PYTHONPATH`，在其 Python 环境安装 `pytest` 后运行：
 
----
+```bash
+python -m pytest tests -q
+```
 
-**开始使用海鸥破甲插件，全域技术无限制！** 🚀
+测试覆盖真实 CLI 安装、更新保留配置、插件加载、提示内容和技能索引。使用本项目前请阅读 `DISCLAIMER.md`。

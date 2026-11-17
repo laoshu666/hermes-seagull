@@ -1,0 +1,13 @@
+name: seagull
+version: 1.1.0
+description: "海鸥破甲智能体 - Hermes 0.23 兼容版"
+author: "laoshu666"
+license: "MIT"
+distribution_owned:
+  - SOUL.md
+  - AGENTS.md
+  - profile.yaml
+  - config.yaml
+  - skills/
+  - plugins/seagull-armor-break/
+  - distribution.yaml

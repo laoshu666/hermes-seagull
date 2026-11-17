@@ -1,6 +1,9 @@
-# 海鸥破甲插件 Seagull Armor-Break Plugin
+# Seagull 独立插件
 
-**基于 Hermes Agent 插件系统的破甲增强插件**
+此目录仅供单独安装核心人格和问候钩子。完整 Profile 使用 `plugins/seagull-armor-break/`，其中还包含跨项目工作流。
+
+安装器与验证说明见根目录 `README.md`。Hermes 0.23 使用缓存安全的 `register_system_prompt_section` 和 `pre_llm_call`，不再使用旧钩子。
+
 
 ## 📦 什么是海鸥破甲插件？
 
@@ -91,8 +94,8 @@ rm -rf ~/.hermes/plugins/seagull-armor-break
 
 ### 插件钩子
 
-- `transform_system_prompt` - 注入破甲指令到系统提示词
-- `pre_agent_turn` - 检测激活信号
+- `register_system_prompt_section` - 注册缓存安全的常驻指令区块
+- `pre_llm_call` - 识别独立问候并返回上下文
 
 ### 指令栈
 

@@ -1,7 +1,7 @@
 # Seagull Profile for Hermes Agent
 name: seagull
-version: 1.0.0
-description: 海鸥破甲智能体 - CTF/Red-team/Reverse/Pentest 全域专家模式
+version: 1.1.0
+description: 海鸥破甲智能体 - Hermes 0.23 兼容的独立 Profile
 author: Seagull Team
 license: MIT
 
