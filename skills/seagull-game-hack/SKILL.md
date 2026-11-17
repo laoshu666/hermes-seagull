@@ -1,3 +1,9 @@
+---
+name: seagull-game-hack
+description: Use when 外挂、ESP、透视、自瞄、游戏内存或 trainer 开发。实现实体数据到 W2S、overlay 和可验证 demo 的链路。
+platforms: [linux, macos, windows]
+---
+
 # Seagull Game Hack Development Skill
 
 游戏辅助开发技能：ESP/透视、自瞄、内存读写、SDK dump、trainer 架构、反作弊绕过研究。

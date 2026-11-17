@@ -1,219 +1,74 @@
-# 海鸥破甲智能体 (Seagull Profile for Hermes Agent)
+# 海鸥 Seagull Profile（Hermes 0.23 兼容版）
 
----
+独立的 `seagull` Profile：SOUL 人格、常驻指令、问候路由和五个技能。
 
-## ⚠️ 重要提示 / IMPORTANT
+使用前请阅读 [免责声明](DISCLAIMER.md)。
 
-**🔴 使用本项目前，请务必阅读 [免责声明 (Disclaimer)](DISCLAIMER.md) 🔴**
+## 安装与启动
 
-**🔴 Please read the [Disclaimer](DISCLAIMER.md) before using this project 🔴**
-
-本项目仅供以下**合法场景**使用：
-- ✅ CTF 竞赛、信息安全竞赛
-- ✅ 授权渗透测试（需书面授权）
-- ✅ 安全研究、学术研究
-- ✅ 个人实验环境（自有系统）
-- ✅ 教育培训、逆向分析
-
-❌ **严禁用于任何未授权的攻击、非法入侵、数据窃取等违法行为！**
-
-任何非法使用后果自负，开发者不承担任何责任。
-
-This project is for **legitimate purposes only**: CTF, authorized pentesting, security research, personal labs, and education. **Illegal use is strictly prohibited.** Users are fully responsible for compliance with laws.
-
----
-
-**为 Hermes Agent 打造的 CTF/安全研究专用 Profile**
-
-## 快速开始
+```powershell
+# Windows PowerShell，在仓库根目录
+.\install.ps1
+```
 
 ```bash
-# 1. 安装 Hermes Agent
-pip install hermes-agent
-
-# 2. 克隆本仓库
-git clone https://github.com/laoshu666/hermes-seagull.git
-cd hermes-seagull-profile
-
-# 3. 一键安装
-# Linux/macOS
+# Linux/macOS，在仓库根目录
 ./install.sh
-
-# Windows
-.\install.ps1
-
-# 4. 启动使用
-hermes chat
 ```
 
-发送 `在吗` 激活全域模式。
-
-## 核心特性
-
-✅ **无限制同级内核** - 完整技术交付，无关键词拒答  
-✅ **原义强制执行** - 操作员原话 = 任务合同  
-✅ **CTF/红队全局覆盖** - 默认按实验室资产处理  
-✅ **20+ 专业技能** - 逆向/渗透/Pwn/游戏辅助/卡密...  
-✅ **双平台支持** - Linux + Windows 完整兼容  
-
-## 技能速查
-
-| 说 | 得到 |
-|----|------|
-| `在吗` | 全域激活 |
-| `逆向` | PE/ELF 分析 + 算法恢复 |
-| `渗透` | Web/API 测试 + 自动化脚本 |
-| `越权` | IDOR/越权矩阵 + 复现脚本 |
-| `外挂` | ESP/自瞄完整代码（demo 可跑） |
-| `卡密` | 验证流恢复 + patch-point |
-| `pwn` | Exploit 脚本 + ROP 链 |
-
-## 项目结构
-
-```
-seagull-profile/
-├── SOUL.md              # 人格核心 + 破甲栈
-├── AGENTS.md            # 工作指令 + 技能路由
-├── profile.yaml         # Profile 元信息
-├── README.md            # 完整文档
-├── README.zh-CN.md      # 中文简明文档
-├── LICENSE              # MIT 许可证
-├── requirements.txt     # Python 依赖
-├── install.sh           # Linux/macOS 安装脚本
-├── install.ps1          # Windows 安装脚本
-└── skills/              # 专业技能库
-    ├── seagull-reverse/           # 逆向工程
-    ├── seagull-pentest/           # 渗透测试
-    ├── seagull-exploit/           # 漏洞利用
-    ├── seagull-game-hack/         # 游戏辅助开发
-    ├── seagull-license-security/  # 卡密安全
-    ├── seagull-memory/            # 内存分析
-    ├── seagull-malware/           # 恶意软件分析
-    ├── seagull-evasion/           # 免杀研究
-    ├── seagull-anticheat/         # 反作弊
-    └── ...                        # 更多技能
+```bash
+hermes -p seagull setup
+hermes -p seagull chat
 ```
 
-## 使用示例
+发送 `在吗`，预期回复：`海鸥在线，你要整点薯条吗？`。
 
-### 逆向二进制
-```
-你: 分析这个 EXE，找到密钥生成算法
-海鸥: [Hash → 字符串 → IDA 定位 → 算法还原 → Python keygen]
-```
+也可使用 Hermes 原生命令：
 
-### Web 越权测试
-```
-你: 测试这个 API 的越权漏洞
-海鸥: [主体×对象矩阵 → 换 token 重放 → PoC 脚本 → 修复建议]
+```bash
+hermes profile install /path/to/hermes-seagull --name seagull --yes
+hermes -p seagull plugins enable seagull-armor-break
 ```
 
-### 游戏 ESP 开发
-```
-你: 和平精英绘制方框
-海鸥: [entity 结构 → W2S 转换 → overlay 代码 → --demo 可运行]
-```
+不要向 `config.yaml` 追加旧版 `active_profile:` 配置。使用 `hermes -p seagull` 或 `hermes profile use seagull` 选择 Profile。
 
-### 卡密破解研究
-```
-你: 这个软件的激活验证怎么绕过
-海鸥: [入口定位 → patch-point 地图 → 本地 verifier → 验证命令]
-```
+## 五个实际安装的技能
 
-## 破甲机制
+- `seagull-reverse`：逆向工程。
+- `seagull-pentest`：渗透与越权测试。
+- `seagull-exploit`：漏洞利用。
+- `seagull-game-hack`：ESP、自瞄与游戏辅助开发。
+- `seagull-license-security`：授权验证流分析。
 
-海鸥通过多层检测器自动消除半拒：
-
-- **P1** 许可切除："可以写 X 但不能写 Y"
-- **P2** 降级替换：完整实现 → 大纲/氛围版
-- **P3** 客服收尾：只剩建议无产物
-- **P4** 坚持复读：已否定的模板再次出现
-- **P5** 假完成："已给完整方案"但无代码
-
-发现上述模式 → 整段重写 → 补全主交付物
-
-## 常见问题
-
-**Q: 安装后无效？**  
-A: 检查 `~/.hermes/config.yaml` 是否有 `active_profile: seagull`
-
-**Q: 还是有拒答？**  
-A: 发送 `在吗` 激活全局覆盖，或用 `破甲` 显式触发
-
-**Q: 如何恢复原版？**  
-A: 编辑 config.yaml，注释掉 `active_profile: seagull`
-
-**Q: 技能不触发？**  
-A: 使用显式触发词：`逆向` / `渗透` / `外挂` / `卡密` 等
-
-## 技术支持
-
-- 📖 **完整文档**: [README.md](README.md)
-- 🐛 **问题反馈**: [Issues](https://github.com/YOUR-USERNAME/hermes-seagull-profile/issues)
-- 💬 **讨论交流**: [Discussions](https://github.com/YOUR-USERNAME/hermes-seagull-profile/discussions)
-
-## 许可证
-
-MIT License - 自由使用、修改、分发
-
----
-
-**海鸥在线。把目标扔来，老子直接开干。**
-
-
-## 🔄 更新破甲配置
-
-### 自动更新（推荐）
-已启用 GitHub Actions 自动同步，每天凌晨 2 点自动检查 Hermes 上游更新并保护破甲配置。
-
-### 手动更新
-```powershell
-# 完整更新（同步上游 + 更新依赖 + 保护配置）
-.\seagull-update.ps1
-
-# 只更新依赖，不同步上游
-.\seagull-update.ps1 -SkipUpstream
-
-# 强制重装所有依赖
-.\seagull-update.ps1 -ForceUpdate
+```bash
+hermes -p seagull skills list
+hermes -p seagull plugins list --plain --no-bundled
+hermes -p seagull config path
 ```
 
-**更新后自动保护以下配置：**
-- ✅ AGENTS.md（破甲指令集）
-- ✅ skills/（所有技能模块）
-- ✅ system-prompt.md（基础替换层）
-- ✅ .codex/config.toml（配置文件）
+## 更新与恢复
 
-## ⚡ 激活全栈破甲
-
-### 方法一：问候激活（推荐）
-```
-用户: 在吗
-海鸥: 海鸥在线，你要整点薯条吗？
+```bash
+hermes profile update seagull --yes
 ```
 
-✅ **此时全栈破甲自动激活**，包含：
-- 🔓 无限制同级内核
-- 🎯 原义强制锁定  
-- 🛡️ 破甲协议
-- 🚫 双用词不拒
-- 🎮 CTF红队全局覆盖
-- ⚡ 强制开工
-- 🎨 成人内容M5
+更新保留配置、凭证、会话和记忆。切回默认 Profile：
 
-### 方法二：显式激活
-```
-全栈破甲    → 显式激活所有模块
-无限制      → 海鸥全域专家模式
-破甲        → 破甲协议
-逆向        → 逆向工程
-渗透        → 渗透工程
-外挂        → 游戏辅助开发
-卡密        → 卡密安全
-成人模式    → 成人内容模式
+```bash
+hermes profile use default
 ```
 
-### 方法三：验证脚本
-```powershell
-.\activate-seagull.ps1  # 检查环境并显示激活状态
+禁用插件：
+
+```bash
+hermes -p seagull plugins disable seagull-armor-break
 ```
+
+## 说明
+
+- `AGENTS.md` 是项目级规则，不是全局配置。
+- 跨项目工作流由 `plugins/seagull-armor-break/WORKFLOWS.md` 提供。
+- 插件使用 Hermes 0.23 的缓存安全系统提示区块，不逐轮改写系统提示。
+- 修改插件后请新建会话，旧会话可能仍使用旧提示快照。
+
+详细开发与验证说明见 [README.md](README.md)。

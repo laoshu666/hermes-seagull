@@ -1,4 +1,46 @@
-# 🌊 Seagull Profile - 安装完成
+# Seagull 安装指南（Hermes 0.23）
+
+在仓库根目录运行安装器：
+
+```powershell
+# Windows PowerShell
+.\install.ps1
+```
+
+```bash
+# Linux/macOS
+./install.sh
+```
+
+启动：
+
+```bash
+hermes -p seagull chat
+```
+
+首次安装只安装 Seagull 的分发内容，不继承或修改默认 Profile 的模型、凭证和消息渠道。首次启动前可运行 `hermes -p seagull setup` 配置模型。已有 Seagull Profile 更新时保留其配置、凭证、会话和记忆。
+
+发送 `在吗`，预期回复：`海鸥在线，你要整点薯条吗？`。
+
+## 验证
+
+```bash
+hermes -p seagull config path
+hermes -p seagull plugins list --plain --no-bundled
+hermes -p seagull skills list
+hermes -p seagull plugins doctor /path/to/hermes-seagull/plugins/seagull-armor-break --ci
+```
+
+包结构检查：
+
+```bash
+sh verify.sh
+```
+
+不要写入旧版 `active_profile:` YAML 配置。选择 Profile 使用 `-p seagull` 或 `hermes profile use seagull`。更新后请新建会话，已有会话可能使用旧提示快照。
+
+详细说明见 `README.md`、`QUICKSTART.md` 和 `API_CONFIG.md`。
+
 
 ## ✅ 项目已就绪
 
@@ -20,7 +62,7 @@
 # 1. 运行安装脚本
 .\install.ps1
 
-# 2. 重启：先 Ctrl+C 退出，再运行 `hermes chat`
+# 2. 重启：先 Ctrl+C 退出，再运行 `hermes -p seagull chat`
 
 # 3. 测试激活
 # 在 Hermes Agent 中输入: 在吗
@@ -36,7 +78,7 @@ chmod +x install.sh
 # 2. 运行安装脚本
 ./install.sh
 
-# 3. 重启：先 Ctrl+C 退出，再运行 `hermes chat`
+# 3. 重启：先 Ctrl+C 退出，再运行 `hermes -p seagull chat`
 
 # 4. 测试激活
 # 在 Hermes Agent 中输入: 在吗
@@ -126,7 +168,7 @@ Seagull is ready. Lets go!
 ```
 
 将生成:
-- `seagull-profile-v1.0.0-[timestamp].zip`
+- `seagull-profile-v1.1.0-[timestamp].zip`
 - SHA256 校验和
 - 完整文件清单
 
@@ -171,7 +213,7 @@ pwn
 
 ## ⚠️ 重要提示
 
-1. **安装后必须重启：先 Ctrl+C 退出，再运行 `hermes chat`
+1. **安装后必须重启：先 Ctrl+C 退出，再运行 `hermes -p seagull chat`
 2. **首次使用输入 `在吗` 激活**
 3. **遇到问题运行 verify 脚本检查**
 4. **保留备份以便回滚**
@@ -183,7 +225,7 @@ pwn
 - 查看 QUICKSTART.md 快速排查
 - 运行 verify 脚本检查完整性
 - 检查 Hermes Agent home 路径是否正确
-- 确认已重启：先 Ctrl+C 退出，再运行 `hermes chat`
+- 确认已重启：先 Ctrl+C 退出，再运行 `hermes -p seagull chat`
 
 ---
 

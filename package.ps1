@@ -1,6 +1,6 @@
 # Seagull Profile - Package and Release Script
 
-$version = "1.0.0"
+$version = "1.1.0"
 $packageName = "seagull-profile-v$version"
 $timestamp = Get-Date -Format "yyyy-MM-dd-HHmmss"
 
@@ -33,6 +33,9 @@ Write-Host "  Copying files to temp directory..." -ForegroundColor Gray
 Copy-Item "SOUL.md" $tempDir
 Copy-Item "AGENTS.md" $tempDir
 Copy-Item "profile.yaml" $tempDir
+Copy-Item "config.yaml" $tempDir
+Copy-Item "distribution.yaml" $tempDir
+Copy-Item "install.py" $tempDir
 Copy-Item "README.md" $tempDir
 Copy-Item "README.zh-CN.md" $tempDir
 Copy-Item "LICENSE" $tempDir
@@ -41,6 +44,7 @@ Copy-Item "install.sh" $tempDir
 Copy-Item "install.ps1" $tempDir
 Copy-Item "verify.ps1" $tempDir
 Copy-Item -Recurse "skills" $tempDir
+Copy-Item -Recurse "plugins" $tempDir
 
 # Create archive
 $archiveName = "$packageName-$timestamp.zip"

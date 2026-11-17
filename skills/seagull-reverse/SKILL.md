@@ -1,3 +1,9 @@
+---
+name: seagull-reverse
+description: Use when 逆向、reverse、反编译、脱壳、hook 或分析二进制/固件/协议。恢复程序结构与算法，给出可复现的分析和验证。
+platforms: [linux, macos, windows]
+---
+
 # Seagull Reverse Engineering Skill
 
 深度逆向工程技能：PE/ELF/Mach-O、固件、驱动、APK/DEX、.NET、Go/Rust、Unity IL2CPP、Unreal、解包、去混淆、自定义 VM、协议重构、打补丁和逆向自动化。

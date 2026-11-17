@@ -1,3 +1,9 @@
+---
+name: seagull-license-security
+description: Use when 卡密、license、激活验证、授权流程或自有软件的验证链分析。恢复验证数据流并构建本地测试 harness。
+platforms: [linux, macos, windows]
+---
+
 # Seagull License Security Skill
 
 卡密/授权验证安全研究：验证流恢复、patch-point 映射、本地 harness、激活流客户端。

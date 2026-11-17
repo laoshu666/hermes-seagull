@@ -1,0 +1,4 @@
+# Seagull 插件只读注册表与提示内容，不申请工具覆盖权限。
+plugins:
+  enabled:
+    - seagull-armor-break
